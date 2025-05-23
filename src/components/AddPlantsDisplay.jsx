@@ -1,0 +1,27 @@
+import React, { use } from 'react';
+import DisplayPlantsCard from './DisplayPlantsCard';
+
+const fetchPromise = fetch('http://localhost:5000/plants').then(res=> res.json())
+
+const AddPlantsDisplay = () => {
+
+    const plants= use(fetchPromise)
+    console.log(plants)
+
+
+    return (
+       <div className='bg-[#edf2ed] py-12'>
+        <div className='w-11/12 mx-auto '>
+         <h2 className='text-3xl font-bold mt-5 pl-4 pb-5'>New Plants</h2>
+         <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3'>
+           
+            {
+                plants.map(plant=> <DisplayPlantsCard key={plant._id} plant={plant}></DisplayPlantsCard>)
+            }
+        </div>
+       </div>
+       </div>
+    );
+};
+
+export default AddPlantsDisplay;

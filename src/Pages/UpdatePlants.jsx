@@ -1,49 +1,13 @@
-import React from "react";
-import Swal from "sweetalert2";
+import React from 'react';
 
-const AddPlants = () => {
-
-  const handleAddPlant = (e)=>{
-    e.preventDefault()
-    const form = e.target;
-    const formData = new FormData(form);
-    const newPlantData = Object.fromEntries(formData.entries())
-    console.log(newPlantData)
-    // send coffee data to the db
-    fetch(`http://localhost:5000/plants`,{
-      method:'POST',
-      headers:{
-        'content-type': 'application/json'
-      },
-      body:JSON.stringify(newPlantData)
-    })
-      .then(res=> res.json())
-      .then(data=>{
-       
-        console.log('after adding plants',data)
-        if(data.insertedId){
-          Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Plant succesfully add",
-  showConfirmButton: false,
-  timer: 1500
-});
-
-        }
-       
-
-      })
-
-  }
+const UpdatePlants = () => {
 
 
 
-
-  return (
-    <div className="w-screen bg-[#edf2ed]">
-      <h1>Add your plant</h1>
-      <form onSubmit={handleAddPlant}>
+    return (
+        <>
+          <h1>Add your plant</h1>
+      <form >
         <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
@@ -73,9 +37,9 @@ const AddPlants = () => {
               className="select select-primary w-full"
             >
               <option disabled={true}>Select your category</option>
-              <option> Indoor Plants</option>
-              <option> Outdoor Plants</option>
-              <option> Succulents & Cacti</option>
+              <option>VScode</option>
+              <option>VScode fork</option>
+              <option>Another VScode fork</option>
             </select>
           </fieldset>
           {/* select two */}
@@ -105,7 +69,7 @@ const AddPlants = () => {
             <label className="label">Last Watered Date -</label>
             <input
             name="water-date"
-              type="date"
+              type="text"
               className="input w-full"
               placeholder="My awesome page"
             />
@@ -114,7 +78,7 @@ const AddPlants = () => {
             <label className="label">Next Watering Date </label>
             <input
             name="nex-water-date"
-              type="date"
+              type="text"
               className="input w-full"
               placeholder="Next Watering Date "
             />
@@ -156,8 +120,9 @@ const AddPlants = () => {
           <input type="submit" className="btn btn-wide btn-primary mt-8" value="Add Plant" />
         </div>
       </form>
-    </div>
-  );
+            
+        </>
+    );
 };
 
-export default AddPlants;
+export default UpdatePlants;

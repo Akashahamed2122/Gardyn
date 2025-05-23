@@ -7,6 +7,8 @@ import AllPlants from "../Pages/AllPlants";
 import AddPlants from "../Pages/AddPlants";
 import MyPlants from "../Pages/MyPlants";
 import ErrorPages from "../Pages/ErrorPages";
+import ViewDetails from "../Pages/ViewDetails";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +31,8 @@ export const router = createBrowserRouter([
         },
         {
           path:'/allplants',
-          element: <AllPlants></AllPlants>
+          loader: ()=> fetch(`http://localhost:5000/plants`),
+          element: <PrivateRoute> <AllPlants></AllPlants> </PrivateRoute>
         },
         {
           path:'/addplants',
@@ -38,7 +41,13 @@ export const router = createBrowserRouter([
         {
           path:'/myplants',
           element: <MyPlants></MyPlants>
+        },
+        {
+          path:'/viewDetails/:id',
+          loader: ()=> fetch(`http://localhost:5000/plants`),
+          element: <PrivateRoute> <ViewDetails></ViewDetails> </PrivateRoute>
         }
+        
 
 
     ]

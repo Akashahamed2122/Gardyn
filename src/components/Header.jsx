@@ -1,46 +1,108 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router';
-import logoImg from "../assets/mylogo.svg"
+import React, { use } from "react";
+import { Link, Links, NavLink } from "react-router";
+import logoImg from "../assets/logo-black.webp";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Header = () => {
+  const { user, setUser, logOut } = use(AuthContext);
 
-const links = (
-  <>
-    <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/allplants">All Plants</NavLink></li>
-    <li><NavLink to="/addplants">Add Plant</NavLink></li>
-    <li><NavLink to="/myplants">My Plants</NavLink></li>
-  </>
-);
- 
-    return (
-        <>
-            <div className="navbar bg-base-100 shadow-sm">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+  const handleLogout = () => {
+    logOut()
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log(error);
+      });
+    toast.success("Logout succesfully");
+  };
+
+  const links = (
+    <>
+      <li>
+        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/allplants">All Plants</NavLink>
+      </li>
+      <li>
+        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/addplants">Add Plant</NavLink>
+      </li>
+      <li>
+        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/myplants">My Plants</NavLink>
+      </li>
+    </>
+  );
+
+  return (
+    <>
+      <div className="bg-[#edf2ed]">
+        <div className="navbar w-11/12 mx-auto">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />{" "}
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              {links}
+            </ul>
+          </div>
+          <img className="w-[100px]" src={logoImg} alt="" />
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{links}</ul>
+        </div>
+        <div className="navbar-end space-x-5">
+          <div
+            className="tooltip-bottom tooltip"
+            data-tip={user ? user.displayName : ""}
+          >
+            <img
+              className="w-12 h-12 rounded-full object-cover"
+              src={user && user.photoURL}
+            />
+          </div>
+
+          {user ? (
+            <Link
+              onClick={handleLogout}
+              to={`/login`}
+              className="btn btn-primary"
+            >
+              LogOut
+            </Link>
+          ) : (
+            <div>
+              {" "}
+              <Link to={`/login`} className="btn btn-primary">
+                Login
+              </Link>{" "}
+              <Link to={`/signup`} className="btn btn-primary">
+                signup
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-      {links}
-      </ul>
-    </div>
-    <img className='w-[100px]' src={logoImg} alt="" />
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-   
-     {links}
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <Link to={`/login`} className="btn btn-primary">Login</Link>
-  </div>
-</div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Header;

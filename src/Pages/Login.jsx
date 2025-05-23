@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -16,6 +17,8 @@ const Login = () => {
         singInUser(email,password)
             .then(result=>{
                 console.log(result)
+                navigate('/')
+                 toast.success("Signin succesfully")
             })
             .catch(error=>{
                 console.log(error)
@@ -28,6 +31,7 @@ const Login = () => {
             .then(result=>{
                 console.log(result)
                 navigate('/')
+                 toast.success("Succesfully login")
             })
             .catch(error=>{
                 console.log(error)

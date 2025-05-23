@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const SignUp = () => {
     const {createUser}= useContext(AuthContext)
+	const navigate = useNavigate()
 
 
     const handleRegister = (e)=>{
@@ -29,6 +31,8 @@ const SignUp = () => {
         createUser(email,password)
             .then(result=> {
                 console.log(result)
+				navigate('/')
+				 toast.success(" signup succesfully")
             })
             .catch(data =>{
                 console.log(data)
