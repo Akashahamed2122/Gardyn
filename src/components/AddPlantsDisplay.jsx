@@ -14,7 +14,7 @@ const AddPlantsDisplay = () => {
 
 
     return (
-       <div className='bg-[#edf2ed] py-12'>
+       <div className=' py-12'>
         <div className='w-11/12 mx-auto '>
          <h2 className='text-3xl font-bold mt-5 pl-4 pb-5'>New Plants</h2>
          <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3'>

@@ -5,7 +5,7 @@ import { FaCommentAlt } from "react-icons/fa";
 
 const LatestBlog = () => {
     return (
-       <div className='bg-[#edf2ed] py-20'>
+       <div className=' py-20'>
          <div className='w-11/12 mx-auto mt-12'>
             <h1 className='text-center font-bold text-3xl my-5'>Lates Blog</h1>
             {/* main div  */}

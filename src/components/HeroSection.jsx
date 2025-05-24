@@ -42,7 +42,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="bg-[#edf2ed] py-12">
+    <section className=" py-12">
       <div className="container mx-auto px-4">
         <Slider {...settings}>
           {slides.map((slide, index) => (
@@ -52,10 +52,10 @@ const HeroSection = () => {
                 <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
                   <span className="text-sm font-semibold text-green-700 uppercase">{slide.subtitle}</span>
                   <h1 className="text-4xl lg:text-5xl font-bold text-green-900 leading-tight">{slide.title}</h1>
-                  <p className="text-gray-700">{slide.description}</p>
+                  <p className="">{slide.description}</p>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                     {slide.features.map((f, i) => (
-                      <div key={i} className="bg-white border px-4 py-2 rounded-xl text-sm font-medium text-gray-700 shadow-sm">
+                      <div key={i} className=" border px-4 py-2 rounded-xl text-sm font-medium  shadow-sm">
                         {f}
                       </div>
                     ))}
@@ -68,7 +68,7 @@ const HeroSection = () => {
                 {/* Right: Image */}
                 <div className="lg:w-1/2 flex flex-col items-center">
                   <img src={slide.image} alt={slide.product} className="w-[300px] lg:w-[400px]" />
-                  <div className="mt-4 bg-white px-4 py-2 rounded shadow text-center font-medium">
+                  <div className="mt-4  px-4 py-2 rounded shadow text-center font-medium">
                     {slide.product}
                   </div>
                 </div>

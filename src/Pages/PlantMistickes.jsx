@@ -35,7 +35,7 @@ const services = [
 const PlantMistakes = () => {
   return (
    <div>
-     <div className="w-11/12  mx-auto py-16  text-[#354733]">
+     <div className="w-11/12  mx-auto py-16  ">
       <div className="text-center mb-12">
         
         <h2 className="text-4xl font-semibold">
