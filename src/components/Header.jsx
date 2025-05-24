@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import { RiPlantLine } from "react-icons/ri";
+import ToggleTheme from "../Pages/ToggleTheme";
 
 
 
@@ -82,7 +83,7 @@ const Header = () => {
 
                     {/*  */}
                     <div>
-                      
+                      <ToggleTheme></ToggleTheme>
                     </div>
 
         {
