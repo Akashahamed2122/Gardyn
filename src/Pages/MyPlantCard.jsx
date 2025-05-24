@@ -30,7 +30,9 @@ const MyPlantCard = ({ plants,setPlants,plantss }) => {
         .then(data=>{
             console.log(data)
         })
-
+ // remove the plants from the state
+    const reminingPlants = plantss.filter(pl=> pl._id !==id)
+    setPlants(reminingPlants)
 
         Swal.fire({
           title: "Deleted!",
@@ -40,9 +42,7 @@ const MyPlantCard = ({ plants,setPlants,plantss }) => {
       }
       
     });
-    // // remove the plants from the state
-    // const reminingPlants = plantss.filter(pl=> pl._id !==id)
-    // setPlants(reminingPlants)
+   
   };
 
   const { photo, plantname, _id } = plants;

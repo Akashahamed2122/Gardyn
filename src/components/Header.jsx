@@ -9,6 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { RiPlantLine } from "react-icons/ri";
 
 
+
 const Header = () => {
   const { user, setUser, logOut } = use(AuthContext);
  
@@ -75,15 +76,9 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end space-x-5">
-          {/* <div
-            className="tooltip-bottom tooltip"
-            data-tip={user ? user.displayName : ""}
-          >
-            <img
-              className="w-12 h-12 rounded-full object-cover"
-              src={user && user.photoURL}
-            />
-          </div> */}
+
+
+   
 
                     {/*  */}
                     <div>
