@@ -19,7 +19,7 @@ const DisplayPlantsCard = ({ plant }) => {
         {/* Right Side - Content */}
         <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
           <h3 className="text-2xl md:text-3xl font-bold text-green-800 mb-3">{plantname}</h3>
-          <Link to={`/viewDetails/${_id}`}>
+          <Link to={location?.state ||`/viewDetails/${_id}`}>
             <button className="bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 transition duration-200 w-fit">
               View Details
             </button>
