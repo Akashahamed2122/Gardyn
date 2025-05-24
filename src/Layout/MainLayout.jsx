@@ -14,7 +14,7 @@ const MainLayout = () => {
                 
                 <Outlet></Outlet>
             </div>
-            <div className='py-8'>
+            <div className=''>
                 <Footer></Footer>
             </div>
         </div>
