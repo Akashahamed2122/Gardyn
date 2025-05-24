@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const MyPlantCard = ({ plants,setPlants,plantss }) => {
   const handleDelete = (id) => {
     console.log(_id);
+   
 
     Swal.fire({
       title: "Are you sure?",
@@ -19,7 +20,7 @@ const MyPlantCard = ({ plants,setPlants,plantss }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
+        
         // fetch
           // start deleting the coffee
     fetch(`https://assignment-server-side-sage.vercel.app/plants/${id}`,{
@@ -37,6 +38,7 @@ const MyPlantCard = ({ plants,setPlants,plantss }) => {
           icon: "success",
         });
       }
+      
     });
     // // remove the plants from the state
     // const reminingPlants = plantss.filter(pl=> pl._id !==id)
@@ -45,12 +47,12 @@ const MyPlantCard = ({ plants,setPlants,plantss }) => {
 
   const { photo, plantname, _id } = plants;
 return (
-  <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 mb-6">
+  <div className=" mx-auto p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 mb-6">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
       {/* Photo */}
       <div className="flex justify-center">
         <img
-          className="w-48 h-48 object-cover rounded-xl border border-green-300 shadow-md"
+          className=" h-48 object-cover rounded-xl border border-green-300 shadow-md"
           src={photo}
           alt={plantname}
         />

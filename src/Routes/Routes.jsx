@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addplants",
-        element: <AddPlants></AddPlants>,
+        element: <PrivateRoute> <AddPlants></AddPlants> </PrivateRoute>
       },
       {
         path: "/myplants",
@@ -57,8 +57,8 @@ export const router = createBrowserRouter([
         loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
         element: (
           <PrivateRoute>
-            {" "}
-            <ViewDetails></ViewDetails>{" "}
+            
+            <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
       },

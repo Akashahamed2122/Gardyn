@@ -42,7 +42,7 @@ const AddPlants = () => {
 
   return (
     <div className="w-screen bg-[#edf2ed]">
-      <h1>Add your plant</h1>
+      <h1 className="text-3xl font-bold text-center py-8">Add your plant</h1>
       <form onSubmit={handleAddPlant}>
         <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
@@ -160,7 +160,7 @@ const AddPlants = () => {
          {/* <textarea name="textarea" type="text" placeholder="Description" className="textarea textarea-primary w-full"></textarea> */}
          <input name="text-area" type="text" className="textarea w-full"  placeholder="Description" />
         </div>
-        <div className="w-8/12 mx-auto text-center">
+        <div className="w-8/12 mx-auto text-center py-8">
           <input type="submit" className="btn btn-wide bg-[#016630] mt-8" value="Add Plant" />
         </div>
       </form>

@@ -24,9 +24,9 @@ const AddPlantsDisplay = () => {
             }
            
         </div>
-         <div className='text-center'>
+         <div className='text-center py-8'>
                 {
-                showAll?<button onClick={()=>setShowAll(prev=> !prev)} className='btn'> show Less</button>:<button onClick={()=>setShowAll(prev=> !prev)} className='btn'> show All</button>
+                showAll?<button onClick={()=>setShowAll(prev=> !prev)} className='btn bg-[#016630] py-4 text-white'> show Less</button>:<button onClick={()=>setShowAll(prev=> !prev)} className='btn bg-[#016630] py-4 text-white'> show All</button>
             }
             </div>
        </div>

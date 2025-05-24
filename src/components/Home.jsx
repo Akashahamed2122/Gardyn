@@ -5,6 +5,8 @@ import HeroSection from './HeroSection';
 import LatestBlog from './LatestBlog';
 import PlantMistickes from '../Pages/PlantMistickes';
 
+
+
 const Home = () => {
     return (
         <div>
@@ -14,6 +16,8 @@ const Home = () => {
           </Suspense>
           <PlantMistickes></PlantMistickes>
          <LatestBlog></LatestBlog>
+         
+         
 
         </div>
     );

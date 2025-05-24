@@ -16,7 +16,7 @@ const MyPlants = () => {
     // console.log(myPlants)
 
     return (
-        <div className='w-7/12 mx-auto'>
+        <div className='w-full md:w-7/12 mx-auto'>
           
 
           <div className="grid  grid-cols-1 md:grid-cols-2  ">

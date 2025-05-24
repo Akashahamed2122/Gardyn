@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
+    const location = useLocation()
+    console.log(location)
+
+
     const navigate = useNavigate()
 
     const {singInUser,singInGoogle}=useContext(AuthContext)
@@ -21,7 +25,7 @@ const Login = () => {
         singInUser(email,password)
             .then(result=>{
                 console.log(result)
-                navigate('/')
+                navigate(location?.state ||'/')
                  toast.success("Signin succesfully")
             })
             .catch(error=>{
@@ -34,7 +38,7 @@ const Login = () => {
         singInGoogle()
             .then(result=>{
                 console.log(result)
-                navigate('/')
+                navigate(location?.state||'/')
                  toast.success("Succesfully login")
             })
             .catch(error=>{

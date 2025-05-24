@@ -6,42 +6,40 @@ import img4 from "../assets/c-4.webp";
 
 const services = [
   {
-    title: "Garden Design",
-    description: "Imagine stepping into your own private oasis—a garden designed just for you, where every plant, path, and stone tells your story.",
+    title: "Overwatering",
+    description: "Too much water suffocates roots and causes rot. Always check if the soil is dry before watering again.",
     image: img1,
-    icon: "🌿",
+    icon: "💧",
   },
   {
-    title: "Garden Maintenance",
-    description: "Imagine stepping into your own private oasis—a garden designed just for you, where every plant, path, and stone tells your story.",
+    title: "Incorrect Lighting",
+    description: "Placing plants in the wrong light (too much or too little) affects their growth. Match lighting to plant needs.",
     image: img2,
-    icon: "🧤",
+    icon: "💡",
   },
   {
-    title: "Decking and Patio",
-    description: "Imagine stepping into your own private oasis—a garden designed just for you, where every plant, path, and stone tells your story.",
+    title: "Wrong Pot Size",
+    description: "A pot that’s too small or too large can restrict root development. Use a pot that suits the plant’s current size.",
     image: img3,
-    icon: "🪵",
-  },
-  {
-    title: "Plant Selection",
-    description: "Imagine stepping into your own private oasis—a garden designed just for you, where every plant, path, and stone tells your story.",
-    image: img4,
     icon: "🪴",
   },
+  {
+    title: "Poor Soil Quality",
+    description: "Using the wrong type of soil can block nutrients. Choose soil that's appropriate for your specific plant species.",
+    image: img4,
+    icon: "🌱",
+  },
 ];
+
 
 const PlantMistakes = () => {
   return (
    <div>
      <div className="w-11/12  mx-auto py-16  text-[#354733]">
       <div className="text-center mb-12">
-        <button className="px-4 py-1 bg-[#cfd9cf] text-sm rounded-full uppercase tracking-wide mb-4">
-          Why Choose Us
-        </button>
+        
         <h2 className="text-4xl font-semibold">
-          Our Commitment to <br />
-          <span className="text-3xl font-light">Excellence</span>
+         Top Plant Care Mistakes
         </h2>
       </div>
 

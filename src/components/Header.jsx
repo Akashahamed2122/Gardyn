@@ -1,11 +1,17 @@
 import React, { use } from "react";
+import { IoHome } from "react-icons/io5";
 import { Link, Links, NavLink } from "react-router";
 import logoImg from "../assets/logo-black.webp";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { IoIosAddCircle } from "react-icons/io";
+import { FaUser } from "react-icons/fa";
+import { RiPlantLine } from "react-icons/ri";
+
 
 const Header = () => {
   const { user, setUser, logOut } = use(AuthContext);
+ 
 
   const handleLogout = () => {
     logOut()
@@ -19,16 +25,16 @@ const Header = () => {
   const links = (
     <>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/">Home</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/"> <span><IoHome /></span> Home</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/allplants">All Plants</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/allplants"> <span><RiPlantLine /></span> All Plants</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/addplants">Add Plant</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/addplants"> <span><IoIosAddCircle /></span> Add Plant</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="myplants">My Plants</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="myplants"> <span><FaUser /></span> My Plants</NavLink>
       </li>
     </>
   );
@@ -69,7 +75,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end space-x-5">
-          <div
+          {/* <div
             className="tooltip-bottom tooltip"
             data-tip={user ? user.displayName : ""}
           >
@@ -77,7 +83,26 @@ const Header = () => {
               className="w-12 h-12 rounded-full object-cover"
               src={user && user.photoURL}
             />
-          </div>
+          </div> */}
+
+                    {/*  */}
+                    <div>
+                      
+                    </div>
+
+        {
+          user &&           <div className="tooltip-bottom tooltip" data-tip={user?user.displayName:''}>
+          <img
+            className="w-12 h-12 rounded-full object-cover"
+            src={user ? user.photoURL :''}
+            alt="User"
+          />
+</div>
+
+          
+        }
+
+
 
           {user ? (
             <Link
@@ -96,7 +121,9 @@ const Header = () => {
               <Link to={`/signup`} className="btn btn-primary bg-[#016630]">
                 signup
               </Link>
+              
             </div>
+            
           )}
         </div>
       </div>
