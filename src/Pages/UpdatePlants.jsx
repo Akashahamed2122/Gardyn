@@ -1,17 +1,78 @@
 import React from 'react';
+import { useLoaderData, useParams } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpdatePlants = () => {
+  const data = useLoaderData()
+  // console.log(data)
+  const {id}=useParams()
+    const plants = data.find(plant => plant._id === id);
+  console.log(plants)
+  const {
+    _id,
+  name,
+  email,
+  category,
+  ["plant-info"]: plantInfo, // হাইফেন থাকা key এর জন্য ব্র্যাকেট ব্যবহার করতে হয়
+  ["freequency"]: frequency,
+  ["water-date"]: waterDate,
+  ["nex-water-date"]: nextWaterDate,
+  ["helthstatus"]: healthStatus,
+  plantname,
+  photo,
+  ["text-area"]: description,
+} = plants;
+
+
+
+
+
+
+
+  const handleUpdatePlants = (e)=>{
+    e.preventDefault()
+    const form = e.target;
+    const formData = new FormData(form)
+    const updateData = Object.fromEntries(formData.entries())
+    console.log(updateData)
+    // send server to the data
+    fetch( `https://assignment-server-side-sage.vercel.app/plants/${_id}`,{
+      method:'PUT',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(updateData)
+    })
+    .then(res=> res.json())
+    .then(data=>{
+      if(data.modifiedCount){
+        Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Succesfully updated",
+  showConfirmButton: false,
+  timer: 1500
+});
+
+      }
+    })
+
+
+
+  }
 
 
 
     return (
         <>
-          <h1>Add your plant</h1>
-      <form >
+   <div className="w-screen bg-[#edf2ed]">
+      <h1>Update your plant</h1>
+      <form onSubmit={handleUpdatePlants}>
         <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
             <input
+            value={name}
               name="name"
               type="text"
               className="input w-full"
@@ -21,6 +82,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Email</label>
             <input
+            value={email}
               name="email"
               type="email"
               className="input w-full"
@@ -32,14 +94,15 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">choose your category</label>
             <select
+           
             name="category"
               defaultValue="Pick a text editor"
               className="select select-primary w-full"
             >
               <option disabled={true}>Select your category</option>
-              <option>VScode</option>
-              <option>VScode fork</option>
-              <option>Another VScode fork</option>
+              <option> Indoor Plants</option>
+              <option> Outdoor Plants</option>
+              <option> Succulents & Cacti</option>
             </select>
           </fieldset>
           {/* select two */}
@@ -59,6 +122,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">atering Frequency</label>
             <input
+            defaultValue={frequency}
             name="freequency"
               type="text"
               className="input w-full"
@@ -68,8 +132,9 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Last Watered Date -</label>
             <input
+            defaultValue={waterDate}
             name="water-date"
-              type="text"
+              type="date"
               className="input w-full"
               placeholder="My awesome page"
             />
@@ -77,8 +142,9 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Next Watering Date </label>
             <input
+            defaultValue={nextWaterDate}
             name="nex-water-date"
-              type="text"
+              type="date"
               className="input w-full"
               placeholder="Next Watering Date "
             />
@@ -86,6 +152,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Health Status,</label>
             <input
+            defaultValue={healthStatus}
             name="helthstatus"
               type="text"
               className="input w-full"
@@ -95,6 +162,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Plant name</label>
             <input
+            defaultValue={plantname}
             name="plantname"
               type="text"
               className="input w-full"
@@ -104,6 +172,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">image</label>
             <input
+            defaultValue={photo}
             name="photo"
               type="text"
               className="input w-full"
@@ -114,12 +183,13 @@ const UpdatePlants = () => {
         </div>
         <div className="w-8/12 mx-auto mt-5">
          {/* <textarea name="textarea" type="text" placeholder="Description" className="textarea textarea-primary w-full"></textarea> */}
-         <input name="text-area" type="text" className="textarea w-full"  placeholder="Description" />
+         <input defaultValue={description} name="text-area" type="text" className="textarea w-full"  placeholder="Description" />
         </div>
         <div className="w-8/12 mx-auto text-center">
-          <input type="submit" className="btn btn-wide btn-primary mt-8" value="Add Plant" />
+          <input type="submit" className="btn btn-wide btn-primary mt-8" value="Update Plant" />
         </div>
       </form>
+    </div>
             
         </>
     );

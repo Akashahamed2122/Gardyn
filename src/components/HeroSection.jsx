@@ -13,6 +13,14 @@ const slides = [
     product: "Algonema Plant with Teracota Pot",
   },
   {
+    title: "Bring Home the Joy of Greenery",
+    subtitle: "FRESH & GREEN",
+    description: "Transform your room with refreshing indoor plants delivered directly to you.",
+    image: "https://i.ibb.co/KxrqjGMc/ficus-lyrata.webp",
+    features: ["Top Rated", "Eco-Friendly"],
+    product: "Snake Plant in White Pot",
+  },
+  {
     title: "BRING NATURE INTO YOUR HOME",
     subtitle: "FRESH & GREEN",
     description: "Transform your room with refreshing indoor plants delivered directly to you.",

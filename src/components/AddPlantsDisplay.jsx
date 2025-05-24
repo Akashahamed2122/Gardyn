@@ -1,12 +1,16 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import DisplayPlantsCard from './DisplayPlantsCard';
 
-const fetchPromise = fetch('http://localhost:5000/plants').then(res=> res.json())
+const fetchPromise = fetch('https://assignment-server-side-sage.vercel.app/plants').then(res=> res.json())
 
 const AddPlantsDisplay = () => {
 
     const plants= use(fetchPromise)
     console.log(plants)
+    const [showAll,setShowAll]=useState(false)
+    const displayedPlants = showAll ? plants : plants.slice(0, 6);
+
+   
 
 
     return (
@@ -16,9 +20,15 @@ const AddPlantsDisplay = () => {
          <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3'>
            
             {
-                plants.map(plant=> <DisplayPlantsCard key={plant._id} plant={plant}></DisplayPlantsCard>)
+                displayedPlants.map(plant=> <DisplayPlantsCard key={plant._id} plant={plant}></DisplayPlantsCard>)
             }
+           
         </div>
+         <div className='text-center'>
+                {
+                showAll?<button onClick={()=>setShowAll(prev=> !prev)} className='btn'> show Less</button>:<button onClick={()=>setShowAll(prev=> !prev)} className='btn'> show All</button>
+            }
+            </div>
        </div>
        </div>
     );

@@ -28,7 +28,7 @@ const Header = () => {
         <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/addplants">Add Plant</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="/myplants">My Plants</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2':'' } to="myplants">My Plants</NavLink>
       </li>
     </>
   );
@@ -83,17 +83,17 @@ const Header = () => {
             <Link
               onClick={handleLogout}
               to={`/login`}
-              className="btn btn-primary"
+              className="btn btn-primary bg-[#016630]"
             >
               LogOut
             </Link>
           ) : (
             <div>
               {" "}
-              <Link to={`/login`} className="btn btn-primary">
+              <Link to={`/login`} className="btn btn-primary bg-[#016630]">
                 Login
               </Link>{" "}
-              <Link to={`/signup`} className="btn btn-primary">
+              <Link to={`/signup`} className="btn btn-primary bg-[#016630]">
                 signup
               </Link>
             </div>

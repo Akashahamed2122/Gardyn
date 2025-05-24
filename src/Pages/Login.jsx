@@ -13,6 +13,10 @@ const Login = () => {
         e.preventDefault()
         const email =e.target.email.value;
         const password = e.target.password.value;
+        if(password !==password){
+            alert('wrong password')
+
+        }
         console.log(email,password)
         singInUser(email,password)
             .then(result=>{
@@ -42,8 +46,8 @@ const Login = () => {
 
 
     return (
-        <>
-           <div className="w-full max-w-md p-8 space-y-3 mx-auto mt-30 rounded-xl bg-[#1e5a00]">
+        <div className='w-11/12 mx-auto px-2 md:px-0'>
+           <div className="w-full max-w-md p-8 space-y-3 mx-auto mt-30 rounded-xl bg-[#bef7dc]">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
 	<form onSubmit={handleLogin} className="space-y-6">
 		<div className="space-y-1 text-sm">
@@ -57,7 +61,7 @@ const Login = () => {
 				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
 			</div>
 		</div>
-		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Sign in</button>
+		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-[#00c951]">Sign in</button>
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
@@ -76,7 +80,7 @@ const Login = () => {
 		<Link to={`/signup`} rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</Link>
 	</p>
 </div>
-        </>
+        </div>
     );
 };
 

@@ -9,47 +9,64 @@ import MyPlants from "../Pages/MyPlants";
 import ErrorPages from "../Pages/ErrorPages";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
+import UpdatePlants from "../Pages/UpdatePlants";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-     errorElement: <ErrorPages></ErrorPages>,
+    errorElement: <ErrorPages></ErrorPages>,
     element: <MainLayout></MainLayout>,
     children: [
-        {
-            path:'/',
-            element: <Home></Home>
-            
-        },
-        {
-          path:'/login',
-          element: <Login></Login>
-        },
-        {
-          path:'/signup',
-          element: <SignUp></SignUp>
-        },
-        {
-          path:'/allplants',
-          loader: ()=> fetch(`http://localhost:5000/plants`),
-          element: <PrivateRoute> <AllPlants></AllPlants> </PrivateRoute>
-        },
-        {
-          path:'/addplants',
-          element: <AddPlants></AddPlants>
-        },
-        {
-          path:'/myplants',
-          element: <MyPlants></MyPlants>
-        },
-        {
-          path:'/viewDetails/:id',
-          loader: ()=> fetch(`http://localhost:5000/plants`),
-          element: <PrivateRoute> <ViewDetails></ViewDetails> </PrivateRoute>
-        }
-        
-
-
-    ]
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/allplants",
+        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AllPlants></AllPlants>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addplants",
+        element: <AddPlants></AddPlants>,
+      },
+      {
+        path: "/myplants",
+        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
+        element: (
+          <PrivateRoute>
+            <MyPlants></MyPlants>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/viewDetails/:id",
+        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
+        element: (
+          <PrivateRoute>
+            {" "}
+            <ViewDetails></ViewDetails>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path:'/updateplants/:id',
+        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants/`),
+        element: <UpdatePlants></UpdatePlants>
+      }
+    ],
   },
 ]);

@@ -10,7 +10,7 @@ const AddPlants = () => {
     const newPlantData = Object.fromEntries(formData.entries())
     console.log(newPlantData)
     // send coffee data to the db
-    fetch(`http://localhost:5000/plants`,{
+    fetch(`https://assignment-server-side-sage.vercel.app/plants`,{
       method:'POST',
       headers:{
         'content-type': 'application/json'
@@ -48,6 +48,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
             <input
+            required
               name="name"
               type="text"
               className="input w-full"
@@ -57,6 +58,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Email</label>
             <input
+            required
               name="email"
               type="email"
               className="input w-full"
@@ -95,6 +97,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">atering Frequency</label>
             <input
+            required
             name="freequency"
               type="text"
               className="input w-full"
@@ -104,6 +107,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Last Watered Date -</label>
             <input
+            required
             name="water-date"
               type="date"
               className="input w-full"
@@ -113,6 +117,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Next Watering Date </label>
             <input
+            required
             name="nex-water-date"
               type="date"
               className="input w-full"
@@ -122,6 +127,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Health Status,</label>
             <input
+            required
             name="helthstatus"
               type="text"
               className="input w-full"
@@ -131,15 +137,17 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Plant name</label>
             <input
+            required
             name="plantname"
               type="text"
               className="input w-full"
-              placeholder="enter your email"
+              placeholder="Plantname"
             />
           </fieldset>
           <fieldset className="fieldset  rounded-box ">
             <label className="label">image</label>
             <input
+            required
             name="photo"
               type="text"
               className="input w-full"
@@ -153,7 +161,7 @@ const AddPlants = () => {
          <input name="text-area" type="text" className="textarea w-full"  placeholder="Description" />
         </div>
         <div className="w-8/12 mx-auto text-center">
-          <input type="submit" className="btn btn-wide btn-primary mt-8" value="Add Plant" />
+          <input type="submit" className="btn btn-wide bg-[#016630] mt-8" value="Add Plant" />
         </div>
       </form>
     </div>
