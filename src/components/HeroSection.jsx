@@ -42,7 +42,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className=" py-12">
+    <section className="  py-12">
       <div className="w-10/12 mx-auto px-4">
         <Slider {...settings}>
           {slides.map((slide, index) => (

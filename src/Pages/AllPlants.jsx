@@ -7,42 +7,17 @@ const AllPlants = () => {
   console.log(plants);
   return (
    <div className=" py-20">
-	 <div className="w-11/12 mx-auto">
+	 <div className="w-8/12 mx-auto py-20">
+	 <p className="font-bold text-3xl text-center pb-8">All Plants are Hare</p>
 
-
-
-        <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-	
-	<div className="overflow-x-auto">
-		<table className="min-w-full text-xs">
-			<colgroup>
-				<col />
-				<col />
-				<col />
-				<col />
-				<col />
-				<col className="w-24" />
-			</colgroup>
-			<thead className="dark:bg-gray-300">
-				<tr className="text-left text-xl">
-					<th className="p-3">Name</th>
-					<th className="p-3">Category</th>
-					<th className="p-3">Image</th>
-					<th className="p-3">freequency</th>
-					<th className="p-3">ViewDetails</th>
-					<th className="p-3"></th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				{
+	<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+		 {
                     plants.map(plant=> <AllPlantsCard plant={plant}></AllPlantsCard>)
                 }
-			
-			</tbody>
-		</table>
+
 	</div>
-</div>
+
+
 
 
     </div>

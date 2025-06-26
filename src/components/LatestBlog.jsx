@@ -6,7 +6,7 @@ import { FaCommentAlt } from "react-icons/fa";
 const LatestBlog = () => {
     return (
        <div className=' py-20'>
-         <div className='w-11/12 mx-auto mt-12'>
+         <div className='w-8/12 mx-auto mt-12'>
             <h1 className='text-center font-bold text-3xl my-5'>Lates Blog</h1>
             {/* main div  */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0'>
@@ -19,7 +19,7 @@ const LatestBlog = () => {
                     <h2 className='text-xl text-[#212529] font-bold'>Creative Garden Layouts for Every Space</h2>
                     <br />
                     <p className='text-[#647566]'>This month has been bustling with exciting developments in the world of plants. From groundbreaking new devices to innovative...</p>
-                    <p className='flex items-end gap-4 mt-40 text-[#647566]'> <span><FaCommentAlt /></span>  <span>10 Comments</span> </p>
+                    <p className='flex items-end gap-4  text-[#647566]'> <span><FaCommentAlt /></span>  <span>10 Comments</span> </p>
                 </div>
                 <div className='relative'>
                     <img src={blog2} alt="" />

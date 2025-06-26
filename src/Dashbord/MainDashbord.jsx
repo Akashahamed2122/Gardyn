@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router';
+import Dashboard from './DashBord';
 
 const MainDashbord = () => {
     return (
         <div>
-            <Outlet></Outlet>
+            <Dashboard></Dashboard>
         </div>
     );
 };

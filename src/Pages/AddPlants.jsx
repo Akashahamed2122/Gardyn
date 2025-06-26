@@ -45,10 +45,10 @@ const AddPlants = () => {
 
 
   return (
-    <div className="w-screen ">
+    <div className="">
       <h1 className="text-3xl font-bold text-center py-8">Add your plant</h1>
       <form onSubmit={handleAddPlant}>
-        <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid w-10/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
             <input

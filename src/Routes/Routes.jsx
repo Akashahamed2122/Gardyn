@@ -5,15 +5,15 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import AllPlants from "../Pages/AllPlants";
 import AddPlants from "../Pages/AddPlants";
-import MyPlants from "../Pages/MyPlants";
+// import MyPlants from "../Pages/MyPlants";
 import ErrorPages from "../Pages/ErrorPages";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import UpdatePlants from "../Pages/UpdatePlants";
 import DashBord from "../Dashbord/DashBord";
-import DashBordHome from "../Dashbord/DashBordHome";
-import Dashboard from "../Dashbord/DashBord";
 import MainDashbord from "../Dashbord/MainDashbord";
+import Dashboard from "../Dashbord/DashBord";
+import MyPlants from "../Pages/MyPlants";
 
 export const router = createBrowserRouter([
   {
@@ -39,10 +39,10 @@ export const router = createBrowserRouter([
         element: <AllPlants></AllPlants>
       },
     
-      {
-        path: "/addplants",
-        element: <PrivateRoute> <AddPlants></AddPlants> </PrivateRoute>
-      },
+      // {
+      //   path: "/addplants",
+      //   element: <PrivateRoute> <AddPlants></AddPlants> </PrivateRoute>
+      // },
       // {
       //   path: "/myplants",
       //   loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
@@ -70,15 +70,25 @@ export const router = createBrowserRouter([
     ],
   },
     {
-        path:'/',
-        element: <MainDashbord></MainDashbord>,
-        children:[
+        path:'/dashbord',
+        element:<Dashboard></Dashboard>,
+       children:[
           {
-            path:'/dashbord',
-            element: <Dashboard></Dashboard>,
-           
-          }
-        ]
+            path:'addplants',
+            element: <AddPlants></AddPlants>
+          },
+           {
+        path: "myplants",
+        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
+        element: (
+          <PrivateRoute>
+            <MyPlants></MyPlants>,
+          </PrivateRoute>
+        ),
+      },
+     
+
+       ]
     
 
       },

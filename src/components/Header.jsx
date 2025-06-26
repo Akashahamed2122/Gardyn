@@ -40,7 +40,7 @@ const Header = () => {
         
       </li> */}
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-white':'text-xl text-white' } to="/dashbord"> <span><FaUser /></span> DashBord</NavLink>
+        {user &&<NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-white':'text-xl text-white' } to="/dashbord"> <span><FaUser /></span> DashBord</NavLink>}
       </li>
     </>
   );
@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <>
       <div className="">
-        <div className="navbar bg-[#008236] fixed top-0 left-0 px-20 right-0 mx-auto">
+        <div className="navbar bg-[#008236] z-10 fixed top-0 left-0 md:px-50 right-0 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

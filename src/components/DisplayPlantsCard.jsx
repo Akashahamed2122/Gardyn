@@ -1,30 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; // ✅ ঠিক করে দিলাম
 
 const DisplayPlantsCard = ({ plant }) => {
   const { plantname, photo, _id } = plant;
 
   return (
-    <div className="w-full">
-      <div className="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
-        {/* Left Side - Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-auto">
-          <img
-            src={photo}
-            alt={plantname}
-            className="object-cover w-full h-full"
-          />
+    <div className="w-full  border border-gray-300 rounded-xl overflow-hidden bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300 cursor-pointer group">
+      
+      {/* Image as Background with Title Overlay */}
+      <div className="relative h-52 w-full overflow-hidden">
+        <img
+          src={photo}
+          alt={plantname}
+          className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+        />
+        {/* Title Overlay */}
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-2">
+          <h3 className="text-white text-xl font-bold">{plantname}</h3>
         </div>
+      </div>
 
-        {/* Right Side - Content */}
-        <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-green-800 mb-3">{plantname}</h3>
-          <Link to={location?.state ||`/viewDetails/${_id}`}>
-            <button className="bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800 transition duration-200 w-fit">
-              View Details
-            </button>
-          </Link>
-        </div>
+      {/* Button Section */}
+      <div className="p-4">
+        <Link to={`/viewDetails/${_id}`}>
+          <button className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-200 w-full">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );

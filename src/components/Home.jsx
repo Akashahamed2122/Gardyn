@@ -10,12 +10,15 @@ import PlantMistickes from '../Pages/PlantMistickes';
 const Home = () => {
     return (
         <div>
-          <HeroSection></HeroSection>
+          
           <Suspense fallback={<p className='text-center flex justify-center items-center mt-50'><Loading></Loading></p>}>
+          <HeroSection></HeroSection>
              <AddPlantsDisplay></AddPlantsDisplay>
+             <PlantMistickes></PlantMistickes>
+             <LatestBlog></LatestBlog>
           </Suspense>
-          <PlantMistickes></PlantMistickes>
-         <LatestBlog></LatestBlog>
+          
+         
          
          
 

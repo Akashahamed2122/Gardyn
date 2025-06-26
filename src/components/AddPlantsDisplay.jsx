@@ -8,16 +8,16 @@ const AddPlantsDisplay = () => {
     const plants= use(fetchPromise)
     console.log(plants)
     const [showAll,setShowAll]=useState(false)
-    const displayedPlants = showAll ? plants : plants.slice(0, 6);
+    const displayedPlants = showAll ? plants : plants.slice(0, 10);
 
    
 
 
     return (
        <div className=' py-12'>
-        <div className='w-10/12 mx-auto '>
+        <div className='w-8/12 mx-auto '>
          <h2 className='text-3xl font-bold mt-5 pl-4 pb-5'>New Plants</h2>
-         <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3'>
+         <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-5'>
            
             {
                 displayedPlants.map(plant=> <DisplayPlantsCard key={plant._id} plant={plant}></DisplayPlantsCard>)
