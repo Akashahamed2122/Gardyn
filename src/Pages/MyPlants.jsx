@@ -19,7 +19,7 @@ const MyPlants = () => {
         <div className='w-full md:w-7/12 mx-auto'>
           
 
-          <div className="grid  grid-cols-1 md:grid-cols-2  ">
+          <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 py-6">
              {
                 myPlants.map(plants=> <MyPlantCard plantss={plantss} setPlants={setPlants} key={plants._id} plants={plants}></MyPlantCard>)
             

@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { IoHome } from "react-icons/io5";
 import { Link, Links, NavLink } from "react-router";
-import logoImg from "../assets/logo-black.webp";
+import logoImg from "../assets/logo512.png";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { IoIosAddCircle } from "react-icons/io";
@@ -27,24 +27,28 @@ const Header = () => {
   const links = (
     <>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/"> <span><IoHome /></span> Home</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-white':'text-xl text-white' } to="/"> <span><IoHome /></span> Home</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/allplants"> <span><RiPlantLine /></span> All Plants</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-white':'text-xl text-white' } to="/allplants"> <span><RiPlantLine /></span> All Plants</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/addplants"> <span><IoIosAddCircle /></span> Add Plant</NavLink>
-      </li>
+      </li> */}
+      {/* <li>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="/myplants"> <span><FaUser /></span> My Plants</NavLink>
+        
+      </li> */}
       <li>
-        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-[#016630]':'text-xl text-[#016630]' } to="myplants"> <span><FaUser /></span> My Plants</NavLink>
+        <NavLink className={({isActive})=> isActive? 'border-b-2 text-xl text-white':'text-xl text-white' } to="/dashbord"> <span><FaUser /></span> DashBord</NavLink>
       </li>
     </>
   );
 
   return (
     <>
-      <div className="bg-[#edf2ed]">
-        <div className="navbar w-11/12 mx-auto">
+      <div className="">
+        <div className="navbar bg-[#008236] fixed top-0 left-0 px-20 right-0 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,7 +75,7 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <div className="md:block hidden"><img className="w-[100px]" src={logoImg} alt="" /></div>
+          <div className="md:flex items-center hidden"><img className="w-[40px] bg-transparent" src={logoImg} alt="" /> <p className="text-2xl pl-2 text-white">gardyn</p></div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

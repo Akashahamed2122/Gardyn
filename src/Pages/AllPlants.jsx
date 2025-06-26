@@ -6,7 +6,7 @@ const AllPlants = () => {
   const plants = useLoaderData();
   console.log(plants);
   return (
-   <div className="bg-[#edf2ed] py-20">
+   <div className=" py-20">
 	 <div className="w-11/12 mx-auto">
 
 

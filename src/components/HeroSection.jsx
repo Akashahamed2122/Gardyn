@@ -43,13 +43,13 @@ const HeroSection = () => {
 
   return (
     <section className=" py-12">
-      <div className="container mx-auto px-4">
+      <div className="w-10/12 mx-auto px-4">
         <Slider {...settings}>
           {slides.map((slide, index) => (
             <div key={index}>
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="flex flex-col lg:flex-row items-center h-[60vh] justify-between gap-8">
                 {/* Left: Text Content */}
-                <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
+                <div className="lg:w-[70%] md:pl-20 space-y-6 text-center lg:text-left">
                   <span className="text-sm font-semibold text-green-700 uppercase">{slide.subtitle}</span>
                   <h1 className="text-4xl lg:text-5xl font-bold text-green-900 leading-tight">{slide.title}</h1>
                   <p className="">{slide.description}</p>
@@ -66,7 +66,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Right: Image */}
-                <div className="lg:w-1/2 flex flex-col items-center">
+                <div className="w-full md:w-[30%] flex flex-col items-center">
                   <img src={slide.image} alt={slide.product} className="w-[300px] lg:w-[400px]" />
                   <div className="mt-4  px-4 py-2 rounded shadow text-center font-medium">
                     {slide.product}

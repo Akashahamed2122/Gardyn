@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#016630] text-white py-16 mt-20">
+    <footer className="bg-[#016630] bg-[url(assets/silhuette-1-black.webp)] bg-no-repeat bg-cover bg-center text-white py-32 mt-20">
       <div className="w-11/12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
         
         {/* Brand Info */}

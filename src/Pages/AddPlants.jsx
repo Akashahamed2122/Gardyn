@@ -1,7 +1,11 @@
-import React from "react";
+import React, { use, useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const AddPlants = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user)
 
   const handleAddPlant = (e)=>{
     e.preventDefault()
@@ -41,13 +45,14 @@ const AddPlants = () => {
 
 
   return (
-    <div className="w-screen bg-[#edf2ed]">
+    <div className="w-screen ">
       <h1 className="text-3xl font-bold text-center py-8">Add your plant</h1>
       <form onSubmit={handleAddPlant}>
         <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
             <input
+            value={user.displayName}
             required
               name="name"
               type="text"
@@ -58,6 +63,7 @@ const AddPlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Email</label>
             <input
+            value={user.email}
             required
               name="email"
               type="email"
@@ -75,33 +81,33 @@ const AddPlants = () => {
               className="select select-primary w-full"
             >
               <option disabled={true}>Select your category</option>
-              <option> Indoor Plants</option>
-              <option> Outdoor Plants</option>
-              <option> Succulents & Cacti</option>
+              <option> Succulent </option>
+              <option> Fern </option>
+              <option> Flowering </option>
             </select>
           </fieldset>
           {/* select two */}
              <fieldset className="fieldset  rounded-box ">
-            <label className="label">Add Plant Info</label>
+            <label className="label">Care Level </label>
             <select
             name="plant-info"
               defaultValue="Pick a text editor"
               className="select select-primary w-full"
             >
-              <option disabled={true}>Add Plant Info</option>
-              <option>Every 3 days</option>
-              <option>Weekly</option>
-              <option>Twice a week</option>
+              <option disabled={true}>care level</option>
+              <option>Easy</option>
+              <option>Moderate </option>
+              <option>Difficult </option>
             </select>
           </fieldset>
           <fieldset className="fieldset  rounded-box ">
-            <label className="label">atering Frequency</label>
+            <label className="label">Watering Frequency </label>
             <input
             required
             name="freequency"
               type="text"
               className="input w-full"
-              placeholder="atering Frequency"
+              placeholder="Watering Frequency "
             />
           </fieldset>
           <fieldset className="fieldset  rounded-box ">

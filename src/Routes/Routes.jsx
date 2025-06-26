@@ -10,6 +10,10 @@ import ErrorPages from "../Pages/ErrorPages";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import UpdatePlants from "../Pages/UpdatePlants";
+import DashBord from "../Dashbord/DashBord";
+import DashBordHome from "../Dashbord/DashBordHome";
+import Dashboard from "../Dashbord/DashBord";
+import MainDashbord from "../Dashbord/MainDashbord";
 
 export const router = createBrowserRouter([
   {
@@ -32,26 +36,22 @@ export const router = createBrowserRouter([
       {
         path: "/allplants",
         loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
-        element: (
-          <PrivateRoute>
-            {" "}
-            <AllPlants></AllPlants>{" "}
-          </PrivateRoute>
-        ),
+        element: <AllPlants></AllPlants>
       },
+    
       {
         path: "/addplants",
         element: <PrivateRoute> <AddPlants></AddPlants> </PrivateRoute>
       },
-      {
-        path: "/myplants",
-        loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
-        element: (
-          <PrivateRoute>
-            <MyPlants></MyPlants>,
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/myplants",
+      //   loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyPlants></MyPlants>,
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "/viewDetails/:id",
         loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants`),
@@ -69,4 +69,17 @@ export const router = createBrowserRouter([
       }
     ],
   },
+    {
+        path:'/',
+        element: <MainDashbord></MainDashbord>,
+        children:[
+          {
+            path:'/dashbord',
+            element: <Dashboard></Dashboard>,
+           
+          }
+        ]
+    
+
+      },
 ]);

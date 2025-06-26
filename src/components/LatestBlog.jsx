@@ -15,7 +15,7 @@ const LatestBlog = () => {
                     <button className='btn p-8 text-3xl bg-[#798d7a] absolute top-5 border-none left-5'>20 <br />
                     Jun</button>
                 </div>
-                <div className='p-12 bg-[#e1ebe2]'>
+                <div data-aos="fade-zoom-in" className='p-12 bg-[#e1ebe2]'>
                     <h2 className='text-xl text-[#212529] font-bold'>Creative Garden Layouts for Every Space</h2>
                     <br />
                     <p className='text-[#647566]'>This month has been bustling with exciting developments in the world of plants. From groundbreaking new devices to innovative...</p>

@@ -65,14 +65,14 @@ const UpdatePlants = () => {
 
     return (
         <>
-   <div className="w-screen bg-[#edf2ed]">
-      <h1>Update your plant</h1>
+   <div className="w-screen ">
+      <h1 className='text-center py-6 text-3xl'>Update your plant</h1>
       <form onSubmit={handleUpdatePlants}>
         <div className="grid w-8/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
           <fieldset className="fieldset  rounded-box ">
             <label className="label">name</label>
             <input
-            value={name}
+            defaultValue={name}
               name="name"
               type="text"
               className="input w-full"
@@ -82,7 +82,7 @@ const UpdatePlants = () => {
           <fieldset className="fieldset  rounded-box ">
             <label className="label">Email</label>
             <input
-            value={email}
+            defaultValue={email}
               name="email"
               type="email"
               className="input w-full"
@@ -92,31 +92,31 @@ const UpdatePlants = () => {
           {/* select */}
 
           <fieldset className="fieldset  rounded-box ">
-            <label className="label">choose your category</label>
+            <label className="label">select your category</label>
             <select
            
             name="category"
               defaultValue="Pick a text editor"
               className="select select-primary w-full"
             >
-              <option disabled={true}>Select your category</option>
-              <option> Indoor Plants</option>
-              <option> Outdoor Plants</option>
-              <option> Succulents & Cacti</option>
+                <option disabled={true}>Select your category</option>
+              <option> Succulent </option>
+              <option> Fern </option>
+              <option> Flowering </option>
             </select>
           </fieldset>
           {/* select two */}
              <fieldset className="fieldset  rounded-box ">
-            <label className="label">Add Plant Info</label>
+            <label className="label">care level</label>
             <select
             name="plant-info"
               defaultValue="Pick a text editor"
               className="select select-primary w-full"
             >
-              <option disabled={true}>Add Plant Info</option>
-              <option>Every 3 days</option>
-              <option>Weekly</option>
-              <option>Twice a week</option>
+              <option disabled={true}>care level</option>
+              <option>Easy</option>
+              <option>Moderate </option>
+              <option>Difficult </option>
             </select>
           </fieldset>
           <fieldset className="fieldset  rounded-box ">
