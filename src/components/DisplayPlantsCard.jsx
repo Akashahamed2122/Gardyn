@@ -5,7 +5,7 @@ const DisplayPlantsCard = ({ plant }) => {
   const { plantname, photo, _id } = plant;
 
   return (
-    <div className="w-full  border border-gray-300 rounded-xl overflow-hidden bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300 cursor-pointer group">
+    <div  data-aos="flip-up" className="w-full  border border-gray-300 rounded-xl overflow-hidden bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300 cursor-pointer group">
       
       {/* Image as Background with Title Overlay */}
       <div className="relative h-52 w-full overflow-hidden">

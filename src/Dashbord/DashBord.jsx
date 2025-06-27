@@ -20,7 +20,7 @@ const Dashboard = () => {
         to="/"
         className={({ isActive }) =>
           `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
-            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-gray-500'
+            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-[#008236] hover:text-white'
           }`
         }
       >
@@ -28,7 +28,7 @@ const Dashboard = () => {
         Home
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         to="allplants"
         className={({ isActive }) =>
           `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
@@ -38,13 +38,13 @@ const Dashboard = () => {
       >
         <RiPlantLine size={20} />
         All Plants
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         to="addplants"
         className={({ isActive }) =>
           `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
-            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-gray-500'
+            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700  hover:bg-[#008236] hover:text-white'
           }`
         }
       >
@@ -56,12 +56,23 @@ const Dashboard = () => {
         to="myplants"
         className={({ isActive }) =>
           `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
-            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-gray-100'
+            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-[#008236] hover:text-white'
           }`
         }
       >
         <FaUser size={20} />
         My Plants
+      </NavLink>
+      <NavLink
+        to="profile"
+        className={({ isActive }) =>
+          `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
+            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-[#008236] hover:text-white'
+          }`
+        }
+      >
+        <FaUser size={20} />
+        Profile
       </NavLink>
     </>
   );

@@ -14,6 +14,10 @@ import DashBord from "../Dashbord/DashBord";
 import MainDashbord from "../Dashbord/MainDashbord";
 import Dashboard from "../Dashbord/DashBord";
 import MyPlants from "../Pages/MyPlants";
+import Profile from "../Profile/Profile";
+import AboutUs from "../Pages/AboutUs";
+import Gallery from "../Pages/Gallery";
+import Contact from "../Pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +70,18 @@ export const router = createBrowserRouter([
         path:'/updateplants/:id',
         loader: () => fetch(`https://assignment-server-side-sage.vercel.app/plants/`),
         element: <UpdatePlants></UpdatePlants>
+      },
+      {
+        path:'/aboutus',
+        element:<AboutUs></AboutUs>
+      },
+      {
+        path:'/gallery',
+        element:<Gallery></Gallery>
+      },
+      {
+        path:'/contacts',
+        element: <Contact></Contact>
       }
     ],
   },
@@ -86,6 +102,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path:'profile',
+        element: <Profile></Profile>
+      }
      
 
        ]

@@ -1,5 +1,6 @@
 import React, { use, useState } from 'react';
 import DisplayPlantsCard from './DisplayPlantsCard';
+import { Link } from 'react-router';
 
 const fetchPromise = fetch('https://assignment-server-side-sage.vercel.app/plants').then(res=> res.json())
 
@@ -25,9 +26,10 @@ const AddPlantsDisplay = () => {
            
         </div>
          <div className='text-center py-8'>
-                {
+                {/* {
                 showAll?<button onClick={()=>setShowAll(prev=> !prev)} className='btn bg-[#016630] py-4 text-white'> show Less</button>:<button onClick={()=>setShowAll(prev=> !prev)} className='btn bg-[#016630] py-4 text-white'> show All</button>
-            }
+            } */}
+                <Link to={`/allplants`}><button className='btn bg-[#008236] text-white'>Allplants</button></Link>
             </div>
        </div>
        </div>

@@ -53,14 +53,14 @@ const MyPlantCard = ({ plants, setPlants, plantss }) => {
         <Link to={`/viewDetails/${_id}`}>
           <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow">
             <FaEye />
-            <span>Details</span>
+            <span></span>
           </button>
         </Link>
 
         <Link to={`/updateplants/${_id}`}>
           <button className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg shadow">
             <MdEdit />
-            <span>Edit</span>
+            <span></span>
           </button>
         </Link>
 
@@ -69,7 +69,7 @@ const MyPlantCard = ({ plants, setPlants, plantss }) => {
           className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow"
         >
           <MdDelete />
-          <span>Delete</span>
+          <span></span>
         </button>
       </div>
     </div>

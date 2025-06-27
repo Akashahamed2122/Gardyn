@@ -4,6 +4,7 @@ import Loading from './Loading';
 import HeroSection from './HeroSection';
 import LatestBlog from './LatestBlog';
 import PlantMistickes from '../Pages/PlantMistickes';
+import Banner from '../Pages/Banner';
 
 
 
@@ -12,7 +13,10 @@ const Home = () => {
         <div>
           
           <Suspense fallback={<p className='text-center flex justify-center items-center mt-50'><Loading></Loading></p>}>
-          <HeroSection></HeroSection>
+          {/* <HeroSection></HeroSection> */}
+         <div className='mt-20'>
+           <Banner></Banner>
+         </div>
              <AddPlantsDisplay></AddPlantsDisplay>
              <PlantMistickes></PlantMistickes>
              <LatestBlog></LatestBlog>

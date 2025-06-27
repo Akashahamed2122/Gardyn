@@ -44,134 +44,171 @@ const AddPlants = () => {
 
 
 
-  return (
-    <div className="">
-      <h1 className="text-3xl font-bold text-center py-8">Add your plant</h1>
-      <form onSubmit={handleAddPlant}>
-        <div className="grid w-10/12 mx-auto grid-cols-1 md:grid-cols-2 gap-8">
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">name</label>
-            <input
-            value={user.displayName}
-            required
-              name="name"
-              type="text"
-              className="input w-full"
-              placeholder="Enter your name"
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Email</label>
-            <input
-            value={user.email}
-            required
-              name="email"
-              type="email"
-              className="input w-full"
-              placeholder="Enter your email"
-            />
-          </fieldset>
-          {/* select */}
+return (
+  <div className="min-h-screen bg-base-200 py-10 px-4">
+    <h1 className="text-4xl font-bold text-center text-green-800 mb-10">
+      🌿 Add Your Plant
+    </h1>
 
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">choose your category</label>
-            <select
+    <form
+      onSubmit={handleAddPlant}
+      className="max-w-6xl mx-auto bg-white shadow-xl rounded-xl p-8 space-y-8"
+    >
+      {/* Grid Fields */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Name */}
+        <div>
+          <label className="label">Name</label>
+          <input
+            value={user?.displayName}
+            required
+            name="name"
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        {/* Email */}
+        <div>
+          <label className="label">Email</label>
+          <input
+            value={user?.email}
+            required
+            name="email"
+            type="email"
+            className="input input-bordered w-full"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        {/* Category */}
+        <div>
+          <label className="label">Choose your category</label>
+          <select
             name="category"
-              defaultValue="Pick a text editor"
-              className="select select-primary w-full"
-            >
-              <option disabled={true}>Select your category</option>
-              <option> Succulent </option>
-              <option> Fern </option>
-              <option> Flowering </option>
-            </select>
-          </fieldset>
-          {/* select two */}
-             <fieldset className="fieldset  rounded-box ">
-            <label className="label">Care Level </label>
-            <select
+            required
+            className="select select-bordered w-full"
+          >
+            <option disabled selected>
+              Select your category
+            </option>
+            <option>Succulent</option>
+            <option>Fern</option>
+            <option>Flowering</option>
+          </select>
+        </div>
+
+        {/* Care Level */}
+        <div>
+          <label className="label">Care Level</label>
+          <select
             name="plant-info"
-              defaultValue="Pick a text editor"
-              className="select select-primary w-full"
-            >
-              <option disabled={true}>care level</option>
-              <option>Easy</option>
-              <option>Moderate </option>
-              <option>Difficult </option>
-            </select>
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Watering Frequency </label>
-            <input
+            required
+            className="select select-bordered w-full"
+          >
+            <option disabled selected>
+              Care level
+            </option>
+            <option>Easy</option>
+            <option>Moderate</option>
+            <option>Difficult</option>
+          </select>
+        </div>
+
+        {/* Watering Frequency */}
+        <div>
+          <label className="label">Watering Frequency</label>
+          <input
             required
             name="freequency"
-              type="text"
-              className="input w-full"
-              placeholder="Watering Frequency "
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Last Watered Date -</label>
-            <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="e.g., Twice a week"
+          />
+        </div>
+
+        {/* Last Watered Date */}
+        <div>
+          <label className="label">Last Watered Date</label>
+          <input
             required
             name="water-date"
-              type="date"
-              className="input w-full"
-              placeholder="My awesome page"
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Next Watering Date </label>
-            <input
+            type="date"
+            className="input input-bordered w-full"
+          />
+        </div>
+
+        {/* Next Watering Date */}
+        <div>
+          <label className="label">Next Watering Date</label>
+          <input
             required
             name="nex-water-date"
-              type="date"
-              className="input w-full"
-              placeholder="Next Watering Date "
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Health Status,</label>
-            <input
+            type="date"
+            className="input input-bordered w-full"
+          />
+        </div>
+
+        {/* Health Status */}
+        <div>
+          <label className="label">Health Status</label>
+          <input
             required
             name="helthstatus"
-              type="text"
-              className="input w-full"
-              placeholder="Health Status,"
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">Plant name</label>
-            <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="e.g., Healthy / Yellow Leaves"
+          />
+        </div>
+
+        {/* Plant Name */}
+        <div>
+          <label className="label">Plant Name</label>
+          <input
             required
             name="plantname"
-              type="text"
-              className="input w-full"
-              placeholder="Plantname"
-            />
-          </fieldset>
-          <fieldset className="fieldset  rounded-box ">
-            <label className="label">image</label>
-            <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="e.g., Aloe Vera"
+          />
+        </div>
+
+        {/* Image */}
+        <div>
+          <label className="label">Image URL</label>
+          <input
             required
             name="photo"
-              type="text"
-              className="input w-full"
-              placeholder="Enter  your plant photo"
-            />
-          </fieldset>
-        
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Enter plant image URL"
+          />
         </div>
-        <div className="w-8/12 mx-auto mt-5">
-         {/* <textarea name="textarea" type="text" placeholder="Description" className="textarea textarea-primary w-full"></textarea> */}
-         <input name="text-area" type="text" className="textarea w-full"  placeholder="Description" />
-        </div>
-        <div className="w-8/12 mx-auto text-center py-8">
-          <input type="submit" className="btn btn-wide bg-[#016630] mt-8" value="Add Plant" />
-        </div>
-      </form>
-    </div>
-  );
+      </div>
+
+      {/* Description */}
+      <div>
+        <label className="label">Description</label>
+        <textarea
+          name="text-area"
+          className="textarea textarea-bordered w-full"
+          placeholder="Write a short description of your plant"
+        ></textarea>
+      </div>
+
+      {/* Submit Button */}
+      <div className="text-center">
+        <input
+          type="submit"
+          className="btn btn-success btn-wide mt-6"
+          value="🌱 Add Plant"
+        />
+      </div>
+    </form>
+  </div>
+);
+
 };
 
 export default AddPlants;
