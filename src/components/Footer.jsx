@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImg from "../assets/logo512.png";
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
         
         {/* Brand Info */}
         <div>
-          <h4 className="text-2xl font-bold mb-3 tracking-wide">GreenLeaf Garden Care</h4>
+          <h4 className="text-2xl font-bold mb-3 tracking-wide flex items-center gap-x-2"> <img className='w-10' src={logoImg} alt="" /> GreenLeaf Garden Care</h4>
           <p className="text-sm text-gray-200 leading-relaxed">
             Bringing nature closer to you. <br />
             Designed for garden lovers.

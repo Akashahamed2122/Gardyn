@@ -5,6 +5,8 @@ import HeroSection from './HeroSection';
 import LatestBlog from './LatestBlog';
 import PlantMistickes from '../Pages/PlantMistickes';
 import Banner from '../Pages/Banner';
+// import PricingPlan from '../Pages/PricingPlan';
+import Testimonials from '../Pages/Testimonials';
 
 
 
@@ -20,6 +22,10 @@ const Home = () => {
              <AddPlantsDisplay></AddPlantsDisplay>
              <PlantMistickes></PlantMistickes>
              <LatestBlog></LatestBlog>
+             <div>
+             
+             </div>
+             <Testimonials></Testimonials>
           </Suspense>
           
          
