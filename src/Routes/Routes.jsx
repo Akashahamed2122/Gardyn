@@ -18,6 +18,7 @@ import Profile from "../Profile/Profile";
 import AboutUs from "../Pages/AboutUs";
 import Gallery from "../Pages/Gallery";
 import Contact from "../Pages/Contact";
+import DashBordHome from "../Dashbord/DashBordHome";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +106,10 @@ export const router = createBrowserRouter([
       {
         path:'profile',
         element: <Profile></Profile>
+      },
+      {
+        path:'home',
+        element: <DashBordHome></DashBordHome>
       }
      
 

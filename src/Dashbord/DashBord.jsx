@@ -1,23 +1,24 @@
 import React, { useContext } from 'react';
+import { useLocation, Link, NavLink, Outlet } from 'react-router';
 import { RiPlantLine } from 'react-icons/ri';
 import { IoIosAddCircle } from 'react-icons/io';
 import { IoHome } from 'react-icons/io5';
 import { FaUser } from 'react-icons/fa';
 import img1 from '../assets/imgd.jpg';
-import { Link, NavLink, Outlet } from 'react-router';
-import MyPlantCard from '../Pages/MyPlantCard';
-import MyPlants from '../Pages/MyPlants';
 import { AuthContext } from '../Provider/AuthProvider';
+import DashBordHome from './DashBordHome';
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const location = useLocation(); // 👉 বর্তমান path বের করতেছি
 
-  const {user}=useContext(AuthContext)
-
+  // কোন path এ আছি সেটা চেক
+  const isDashboardHome = location.pathname === "/dashboard" || location.pathname === "/dashboard/home";
 
   const links = (
     <>
       <NavLink
-        to="/"
+        to="home"
         className={({ isActive }) =>
           `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
             isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-[#008236] hover:text-white'
@@ -27,18 +28,6 @@ const Dashboard = () => {
         <IoHome size={20} />
         Home
       </NavLink>
-
-      {/* <NavLink
-        to="allplants"
-        className={({ isActive }) =>
-          `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
-            isActive ? 'bg-[#e6f2ed] text-[#016630]' : 'text-gray-700 hover:bg-gray-500'
-          }`
-        }
-      >
-        <RiPlantLine size={20} />
-        All Plants
-      </NavLink> */}
 
       <NavLink
         to="addplants"
@@ -63,6 +52,7 @@ const Dashboard = () => {
         <FaUser size={20} />
         My Plants
       </NavLink>
+
       <NavLink
         to="profile"
         className={({ isActive }) =>
@@ -88,11 +78,10 @@ const Dashboard = () => {
       </div>
 
       {/* Right side */}
-      <div className=" md:col-span-9 ">
-        {/* Content goes here */}
-        {user &&<p>hello word</p>}
-        <Outlet></Outlet>
-       
+      <div className=" md:col-span-9 px-4 py-6">
+        {/* ✅ conditionally show DashBordHome only if on /dashboard or /dashboard/home */}
+        {isDashboardHome && <DashBordHome />}
+        <Outlet />
       </div>
     </div>
   );

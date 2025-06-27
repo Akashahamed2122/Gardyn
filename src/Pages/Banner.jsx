@@ -7,6 +7,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import banner from '../assets/banner.jpg';
 import images from '../assets/carosel1.webp';
 import imgd from '../assets/carosel2.webp';
+import img1 from '../assets/carosol1.jpg';
 
 const cards = [
   {
@@ -25,7 +26,17 @@ const cards = [
     desc: `Snake Plant is hardy and helps purify the air, surviving low light and dry conditions.`,
   },
   {
-    img: banner,
+    img: img1,
+    title: 'Peace Lily',
+    desc: `Peace Lily is known for its beautiful white flowers and air-purifying qualities.`,
+  },
+  {
+    img: img1,
+    title: 'Peace Lily',
+    desc: `Peace Lily is known for its beautiful white flowers and air-purifying qualities.`,
+  },
+  {
+    img: images,
     title: 'Peace Lily',
     desc: `Peace Lily is known for its beautiful white flowers and air-purifying qualities.`,
   },
@@ -36,12 +47,12 @@ const Banner = () => {
     <div className="w-full md:w-10/12 mx-auto py-10">
       <h2 className="text-3xl font-bold mb-8 text-center">🌿 Our Favorite Plants</h2>
       <Swiper
-        slidesPerView={2}         // একসাথে ২টা card দেখাবে
-        slidesPerGroup={2}        // একবার slide করলে ২টা slide হবে
-        loop={true}               // continuous loop
-        loopFillGroupWithBlank={true}  // ✨ এখানে যোগ করো — লুপ শেষেও ঠিক কাজ করবে
+        slidesPerView={2}                // ✅ একসাথে ২টা slide দেখাবে
+        slidesPerGroup={2}               // ✅ একবার slide করলে ২টা করে যাবে
+        loop={true}                      // ✅ লুপ চালু
+        loopFillGroupWithBlank={true}   // ✅ গ্রুপ শেষেও ব্ল্যাঙ্ক না রেখে ব্যালেন্স রাখবে
         autoplay={{
-          delay: 1000,
+          delay: 2500,                   // ⏱️ একটু বেশি delay দেওয়া ভালো ইউজার experience-এর জন্য
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}

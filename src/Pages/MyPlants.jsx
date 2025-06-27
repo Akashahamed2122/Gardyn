@@ -14,7 +14,7 @@ const MyPlants = () => {
   );
 
   return (
-    <div className="w-full min-h-screen bg-base-100">
+    <div className="w-full min-h-screen mt-20 px-10 bg-base-100">
       {/* 🌿 Top Banner */}
       <div className="relative h-64 md:h-80 w-full">
         <img
