@@ -84,7 +84,7 @@ const Header = () => {
   return (
     <>
       <div className="">
-        <div className="navbar bg-[#008236] z-10 fixed top-0 left-0 md:px-50 right-0 mx-auto">
+        <div className="navbar bg-[#008236] z-100 fixed top-0 left-0 md:px-50 right-0 mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -126,7 +126,7 @@ const Header = () => {
           <div className="navbar-end space-x-5">
             {/*  */}
             <div>
-              <ToggleTheme></ToggleTheme>
+              {/* <ToggleTheme></ToggleTheme> */}
             </div>
 
             {user && (

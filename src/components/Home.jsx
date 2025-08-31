@@ -22,9 +22,7 @@ const Home = () => {
              <AddPlantsDisplay></AddPlantsDisplay>
              <PlantMistickes></PlantMistickes>
              <LatestBlog></LatestBlog>
-             <div>
              
-             </div>
              <Testimonials></Testimonials>
           </Suspense>
           
