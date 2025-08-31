@@ -18,7 +18,7 @@ const AddPlantsDisplay = () => {
        <div className=' py-12'>
         <div className='w-8/12 mx-auto '>
          <h2 className='text-3xl font-bold mt-5 pl-4 pb-5'>New Plants</h2>
-         <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-5'>
+         <div className=' grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-4'>
            
             {
                 displayedPlants.map(plant=> <DisplayPlantsCard key={plant._id} plant={plant}></DisplayPlantsCard>)
