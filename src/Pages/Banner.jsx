@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Pagination, Autoplay, EffectFade, Navigation } from 'swiper/modules';
 
 import banner from '../assets/slider1.jpg';
 import images from '../assets/slider2.jpg';
@@ -41,14 +41,11 @@ const cards = [
 ];
 
 const Banner = () => {
+  const swiperRef = useRef(null);
+
   return (
     <div className="w-full mx-auto py-10 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* <h2 className="text-4xl font-bold mb-2 text-center text-green-800">🌿 Our Favorite Plants</h2>
-        <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">
-          Discover our curated collection of beautiful indoor plants that bring life to any space
-        </p> */}
-        
         <div className="relative rounded-xl overflow-hidden shadow-2xl">
           <Swiper
             effect={'fade'}
@@ -63,7 +60,12 @@ const Banner = () => {
               bulletClass: 'custom-bullet',
               bulletActiveClass: 'custom-bullet-active'
             }}
-            modules={[EffectFade, Autoplay, Pagination]}
+            navigation={{
+              nextEl: '.swiper-button-next-custom',
+              prevEl: '.swiper-button-prev-custom',
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            modules={[EffectFade, Autoplay, Pagination, Navigation]}
             className="h-full"
           >
             {cards.map((plant, idx) => (
@@ -110,7 +112,11 @@ const Banner = () => {
         {/* Thumbnail gallery */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
           {cards.map((plant, idx) => (
-            <div key={idx} className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+            <div 
+              key={idx} 
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+              onClick={() => swiperRef.current?.slideToLoop(idx)}
+            >
               <img src={plant.img} alt={plant.title} className="w-full h-40 object-cover" />
               <div className="p-3 bg-white">
                 <h4 className="font-semibold text-green-800">{plant.title}</h4>
